@@ -1,0 +1,14 @@
+{
+  "name": "blog-grid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yliaho/blog-grid.git",
+  "author": "Vesa Meriläinen",
+  "license": "MIT",
+  "scripts": {
+    "serve": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^10.1.1"
+  }
+}
