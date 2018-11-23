@@ -8,8 +8,9 @@
   "scripts": {
     "serve": "serve .",
     "dev": "yarn run clean && parcel index.html about.html",
+    "build": "yarn run clean && parcel build index.html about.html --public-url ./",
     "clean": "trash dist",
-    "publish": "push-dir --dir=dist --branch=gh-pages"
+    "publish": "yarn run build && push-dir --dir=dist --branch=gh-pages"
   },
   "devDependencies": {
     "parcel-bundler": "^1.10.3",
