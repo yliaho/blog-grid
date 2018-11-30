@@ -7,15 +7,40 @@
   "license": "MIT",
   "scripts": {
     "serve": "serve .",
-    "dev": "yarn run clean && parcel index.html about.html",
-    "build": "yarn run clean && parcel build index.html about.html --public-url ./",
+    "dev": "yarn run clean && parcel src/index.html src/about.html",
+    "build": "yarn run clean && parcel build src/index.html src/about.html",
     "clean": "trash dist",
-    "publish": "yarn run build && push-dir --dir=dist --branch=gh-pages"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('Please install dependencies using Yarn.')\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md,html}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "node-sass": "^4.10.0",
     "parcel-bundler": "^1.10.3",
+    "parcel-plugin-eslint": "^1.0.4",
+    "prettier": "^1.15.3",
     "push-dir": "^0.4.1",
     "serve": "^10.1.1",
-    "trash-cli": "^1.4.0"
+    "source-map": "^0.7.3",
+    "trash-cli": "^1.4.0",
+    "typescript": "^3.2.1"
   }
 }
