@@ -19,9 +19,18 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md,html}": [
-      "prettier --write",
-      "git add"
+    "linters": {
+      "src/**/*.{js,json,css,html}": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.{md}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/dist/**/*"
     ]
   },
   "devDependencies": {
