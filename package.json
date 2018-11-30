@@ -13,26 +13,6 @@
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('Please install dependencies using Yarn.')\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "linters": {
-      "src/**/*.{js,json,css,html}": [
-        "prettier --write",
-        "git add"
-      ],
-      "*.{md}": [
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "**/dist/**/*"
-    ]
-  },
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
